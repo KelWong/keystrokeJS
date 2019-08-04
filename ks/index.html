@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="js/jQuery.js"></script>
+    <script src="js/keystroke.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script>
+        $(document).ready(function () {
+            var ks = new Keystroke();
+            ks.listen("ksInput");
+            $("#ksInput").keyup(function (event) {
+                if (event.which == 13) {
+                    ks.populate();
+                };
+            });
+        })
+    </script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <form method="post" action="javascript:void(0);">
+            <div class="form-group">
+                <label for="formGroupExampleInput">Keystorke Recorder</label>
+                <input type="text" class="form-control" id="ksInput" placeholder="type here">
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-md-4 table-responsive">
+                <table id="result_table" class="table table-condensed">
+                    <tbody>
+                        <tr>
+                            <th>Code</th>
+                            <th>Key</th>
+                            <th>Type</th>
+                            <th>TimeStamp (ms)</th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4 table-responsive">
+                <table id="result_table_1" class="table table-condensed">
+                    <tbody>
+                        <tr>
+                            <th>No.</th>
+                            <th>Code</th>
+                            <th>Key</th>
+                            <th>Dwell Time (ms)</th>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-4 table-responsive">
+                <table id="result_table_2" class="table table-condensed">
+
+                    <tbody>
+                        <tr>
+                            <th>No.</th>
+                            <th>Code</th>
+                            <th>Key</th>
+                            <th>Flight Time (ms)</th>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
